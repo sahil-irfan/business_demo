@@ -1,37 +1,17 @@
 "use client";
 
-import Input from "../UI/Input";
-import Button from "../UI/Button";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
   return (
-    <form className="space-y-4 rounded-2xl border bg-white p-6 shadow-sm">
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Email
-        </label>
-
-        <Input
-          type="email"
-          placeholder="Enter your email"
-        />
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Password
-        </label>
-
-        <Input
-          type="password"
-          placeholder="Enter your password"
-        />
-      </div>
-
-      <Button className="w-full">
-        Login
-      </Button>
-    </form>
+    <div className="space-y-4 rounded-2xl border bg-white p-6 shadow-sm">
+      <button
+        onClick={() => signIn("google",{callbackUrl: "/",})}
+        className="w-full rounded-lg bg-red-500 px-4 py-3 font-medium text-white"
+      >
+        Continue with Google
+      </button>
+    </div>
   );
 };
 
