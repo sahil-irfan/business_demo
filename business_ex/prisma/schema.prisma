@@ -16,7 +16,9 @@ model User {
 
   businessName   String?
   contactNumber  String?
-
+  businessDescription String?
+  businessImage String?
+  
   accounts       Account[]
   sessions       Session[]
 
