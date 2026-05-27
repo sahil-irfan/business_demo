@@ -3,6 +3,8 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Button2 from "@/components/UI/Button2";
+import DashboardButton from "./DashboardButton";
+
 const Navbar = () => {
   const { data: session } = useSession();
 
@@ -24,22 +26,18 @@ const Navbar = () => {
  {!session?.user ? (
         
         <div className="flex items-center gap-3">
-          <Link
-            href="/auth/login"
-            className="px-4 py-2 text-sm font-semibold text-slate-600 transition-colors hover:text-indigo-600"
-          >
-            Log in
-          </Link>
+          
 
           <Link
-            href="/auth/signup"
+            href="/auth/login"
             className="relative inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:bg-slate-800 hover:shadow-indigo-200 active:scale-95"
           >
-            Signup
+            Login
           </Link>
         </div>
       ) : (
         <div className="flex items-center gap-4">
+            <DashboardButton />
             <Image
               src={session.user?.image || "https://ui-avatars.com/api/?name=User"}
               alt="Profile"
